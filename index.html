@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AI部下オフィスの見本｜カルテ1枚から集客・返信・販売案内が出てくる</title>
+<meta name="description" content="商品カルテ1枚を唯一の情報源にして、集客係・教育係・販売係の3人が文章を出し、点検係がカルテと照らして差し戻す仕組みの見本。実際に出てきたものと、測った数字を置いています。商品は架空です。">
+<style>
+:root{
+  --ink:#1d2430; --sub:#5b6676; --line:#dfe4ea; --bg:#f7f8f6;
+  --mint:#2fa88a; --mint-bg:#eaf7f2; --warn:#c2543f; --warn-bg:#fdefeb;
+  --card:#fff;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",sans-serif;
+  line-height:1.8;font-size:16px;-webkit-text-size-adjust:100%}
+.wrap{max-width:860px;margin:0 auto;padding:0 18px 80px}
+header{background:var(--ink);color:#fff;padding:34px 0 30px;margin-bottom:28px}
+header .wrap{padding-bottom:0}
+header .eyebrow{font-size:12.5px;letter-spacing:.14em;color:#9fb3ae;margin:0 0 10px}
+header h1{font-size:25px;line-height:1.5;margin:0 0 12px;font-weight:800;letter-spacing:-.01em}
+header p{margin:0;color:#c9d2d0;font-size:14.5px}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.badge{background:#2b3442;border:1px solid #3d4857;color:#d8efe8;font-size:12.5px;padding:4px 10px;border-radius:4px}
+h2{font-size:20px;margin:44px 0 6px;letter-spacing:-.01em;line-height:1.45}
+h2 .num{color:var(--mint);font-size:13px;display:block;letter-spacing:.12em;margin-bottom:4px;font-weight:700}
+h3{font-size:15.5px;margin:26px 0 8px}
+p{margin:10px 0}
+.lead{color:var(--sub);font-size:14.5px;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:18px;margin:16px 0}
+.flow{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
+@media(min-width:720px){.flow{grid-template-columns:1fr 1fr 1fr}}
+.flow .box{background:#fff;border:1px solid var(--line);border-top:3px solid var(--mint);border-radius:8px;padding:14px}
+.flow .box b{display:block;font-size:15px;margin-bottom:4px}
+.flow .box span{font-size:13px;color:var(--sub)}
+.kpi{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:18px 0}
+@media(min-width:720px){.kpi{grid-template-columns:repeat(4,1fr)}}
+.kpi div{background:#fff;border:1px solid var(--line);border-radius:8px;padding:12px 14px}
+.kpi .v{font-size:23px;font-weight:800;letter-spacing:-.02em;display:block;line-height:1.3}
+.kpi .k{font-size:12px;color:var(--sub);display:block}
+.cmp{display:grid;grid-template-columns:1fr;gap:12px;margin:16px 0}
+@media(min-width:720px){.cmp{grid-template-columns:1fr 1fr}}
+.cmp .bad{background:var(--warn-bg);border:1px solid #f0c9bd;border-radius:8px;padding:14px}
+.cmp .good{background:var(--mint-bg);border:1px solid #bfe3d6;border-radius:8px;padding:14px}
+.cmp h4{margin:0 0 8px;font-size:14.5px}
+.cmp .n{font-size:28px;font-weight:800;letter-spacing:-.02em}
+.cmp ul{margin:8px 0 0;padding-left:1.2em;font-size:13.5px;color:#3d4653}
+pre{background:#fbfbfa;border:1px solid var(--line);border-radius:8px;padding:14px;overflow:auto;
+  font-size:12.5px;line-height:1.75;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;white-space:pre-wrap;word-break:break-word;max-height:420px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:16px 0 0}
+.tabs button{background:#fff;border:1px solid var(--line);border-radius:6px;padding:7px 13px;font-size:13.5px;cursor:pointer;color:var(--sub);font-family:inherit}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:700}
+textarea{width:100%;min-height:170px;border:1px solid var(--line);border-radius:8px;padding:12px;
+  font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;line-height:1.7;resize:vertical;background:#fff;color:var(--ink)}
+select,input[type=text]{border:1px solid var(--line);border-radius:6px;padding:8px 10px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink)}
+.btn{background:var(--mint);color:#fff;border:0;border-radius:7px;padding:11px 20px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+.btn.sub{background:#fff;color:var(--sub);border:1px solid var(--line);font-weight:400;font-size:13.5px;padding:8px 14px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0}
+.hit{border-left:3px solid var(--warn);background:var(--warn-bg);padding:9px 12px;margin:7px 0;border-radius:0 6px 6px 0;font-size:14px}
+.hit .why{display:block;color:var(--sub);font-size:12.5px}
+.eye{border-left:3px solid #d8a93c;background:#fdf7e8;padding:9px 12px;margin:7px 0;border-radius:0 6px 6px 0;font-size:14px}
+.pass{border-left:3px solid var(--mint);background:var(--mint-bg);padding:9px 12px;margin:7px 0;border-radius:0 6px 6px 0;font-size:14px}
+.note{font-size:13px;color:var(--sub);background:#fff;border:1px dashed var(--line);border-radius:8px;padding:12px;margin:14px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;margin:14px 0;background:#fff}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:#f1f3f1;font-weight:700;white-space:nowrap}
+footer{border-top:1px solid var(--line);margin-top:56px;padding-top:22px;font-size:13px;color:var(--sub)}
+a{color:#1f7d66}
+.kakuu{background:#fff4d9;border:1px solid #e8d49a;border-radius:8px;padding:12px 14px;font-size:13.5px;margin:16px 0}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <p class="eyebrow">見本ページ</p>
+    <h1>カルテ1枚を直すだけで、集客・返信・販売案内の言うことがそろう</h1>
+    <p>Claude Code の部下3人に、自分の商品の売り文を書かせた見本です。出てきたものと、測った数字をそのまま置いています。</p>
+    <div class="badges">
+      <span class="badge">通し62.6秒で14点</span>
+      <span class="badge">カルテなし22件 → カルテあり0件</span>
+      <span class="badge">点検はこのページでも動きます</span>
+      <span class="badge">見本の商品は架空</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div class="kakuu">
+  <b>先に言っておきます。</b>この見本の商品「30日つづく手帳講座・12,000円」は架空です。実在する講座の販売結果ではありません。
+  ここで出てきた文章を実際にXやnoteへ投稿していないので、表示数・反応・問い合わせ・売上は一切測っていません。
+  測ったのは「何秒で、何点出てきて、カルテと食い違った箇所が何件か」だけです。
+</div>
+
+<h2><span class="num">01</span>出てきたもの</h2>
+<p class="lead">カルテ1枚を置いて <code>node run.js</code> を1回。62.6秒で、下の14点が出てきました。すべて実物です。</p>
+
+<div class="kpi">
+  <div><span class="v">7本</span><span class="k">集客用の投稿（各140字以内）</span></div>
+  <div><span class="v">5通</span><span class="k">質問への返信文（各250字以内）</span></div>
+  <div><span class="v">2点</span><span class="k">告知の投稿と案内文</span></div>
+  <div><span class="v">62.6秒</span><span class="k">3人ぶんの通し時間</span></div>
+</div>
+
+<div class="tabs" id="tabs"></div>
+<pre id="mihon">読み込み中…</pre>
+
+<h2><span class="num">02</span>カルテを渡さないと、何が起きるか</h2>
+<p class="lead">同じ依頼を、カルテを渡さずに（工房の外の空フォルダで）動かしました。採点は同じ点検係です。</p>
+
+<div class="cmp">
+  <div class="bad">
+    <h4>カルテなし</h4>
+    <div class="n">22件</div>
+    <p style="font-size:13.5px;margin:4px 0 0">機械で見つかる直し所</p>
+    <ul>
+      <li>作られた数字「1日あたり約400円」「1か月」</li>
+      <li>「30日後には書くのが当たり前になっている」（測っていない約束）</li>
+      <li>売り手が決めていないことを【返金ポリシーを記載】の空欄で返す</li>
+      <li>向かない人が3つとも書かれていない</li>
+      <li>絵文字・ハッシュタグ入り</li>
+      <li>次の一歩が1本も無い（読んで終わる）</li>
+    </ul>
+  </div>
+  <div class="good">
+    <h4>カルテあり</h4>
+    <div class="n">0件</div>
+    <p style="font-size:13.5px;margin:4px 0 0">機械で見つかる直し所</p>
+    <ul>
+      <li>出てきた数字はぜんぶカルテに出どころがある</li>
+      <li>言えないことを先に書く（「測っていません」から入る）</li>
+      <li>向かない人が3つとも入っている</li>
+      <li>読者の呼び方が14点でそろっている</li>
+      <li>14点すべてに次の一歩が付いている</li>
+      <li>残るのは「人が見る所」10件だけ</li>
+    </ul>
+  </div>
+</div>
+<p class="lead">点検係が通すだけの飾りでないことも確かめました。わざと悪い文（禁止語5・作った数字3・呼び方のブレ2・次の一歩なし2・絵文字）を食わせたら、13件すべて検知しました。</p>
+
+<h2><span class="num">03</span>点検を、ここで動かす</h2>
+<p class="lead">
+  あなたがAIに書かせた文章を貼ると、下の点検がそのまま動きます。工房に入っているものと同じ <code>check_core.js</code> です。
+  <b>貼った文は外に送りません。</b>このページの中だけで動いています（通信していません）。
+</p>
+<p class="lead" style="font-size:13px">
+  なお、ここで使うカルテはあなたが下の欄で編集できる簡易版です。上の「22件」は、工房の本物のカルテ（向かない人・言えないことまで入った9つの欄）で採点した数字なので、件数は一致しません。
+</p>
+
+<div class="card">
+  <div class="row">
+    <label>どの役の文ですか
+      <select id="yakuwari">
+        <option value="shukyaku">集客（上限140字）</option>
+        <option value="kyoiku">教育・返信（上限250字）</option>
+        <option value="hanbai">販売・案内（上限600字）</option>
+      </select>
+    </label>
+    <button class="btn sub" id="load-good">カルテあり の文を入れる</button>
+    <button class="btn sub" id="load-bad">カルテなし の文を入れる</button>
+  </div>
+  <h3>点検する文（見出しは「## 」で区切ってください）</h3>
+  <textarea id="honbun" spellcheck="false"></textarea>
+  <h3>カルテの、点検に使う所</h3>
+  <div class="row">
+    <label style="flex:1 1 320px">言ってよい数字（カンマ区切り）<br>
+      <input type="text" id="suji" style="width:100%" value="1日3分, 30日, 動画8本, 各12分, シート3枚, 12,000円, 1ページ, 1枚, 1冊, 1年, 3日"></label>
+  </div>
+  <div class="row">
+    <label style="flex:1 1 320px">使ってはいけない言葉<br>
+      <input type="text" id="kinshi" style="width:100%" value="絶対, 必ず, 誰でも, 今だけ, 限定, 人生が変わる, 完全攻略, リスクゼロ"></label>
+  </div>
+  <div class="row">
+    <label style="flex:1 1 150px">読者の呼び方<br><input type="text" id="yobi" value="あなた"></label>
+    <label style="flex:1 1 320px">使わない呼び方<br><input type="text" id="tsukawanai" style="width:100%" value="受講生様, みなさん, ユーザー, 本教材"></label>
+  </div>
+  <div class="row">
+    <button class="btn" id="run">点検する</button>
+  </div>
+  <div id="kekka"></div>
+</div>
+
+<h2><span class="num">04</span>カルテの1行を直すと、3人ぜんぶ変わる</h2>
+<p class="lead">値段と書き込み時間を書き換えて、通しで動かし直した記録です。直したのは <code>karte.json</code> の1ファイルだけです。</p>
+<table>
+  <tr><th>直した所</th><th>12,000円 → 15,000円 ／ 1日3分 → 1日5分（カルテ1ファイル）</th></tr>
+  <tr><th>古い値の残り</th><td>集客係 0回 ／ 教育係 0回 ／ 販売係 0回</td></tr>
+  <tr><th>新しい値の出現</th><td>集客係 4回 ／ 教育係 15回 ／ 販売係 6回</td></tr>
+  <tr><th>かかった時間</th><td>通し67.7秒（3人ぶん）</td></tr>
+</table>
+<p class="lead">値上げするとき、投稿・返信・案内文を1枚ずつ探して直す作業がなくなります。直すのはカルテの1行です。</p>
+
+<h2><span class="num">05</span>機械に任せた所と、人が見る所</h2>
+<p class="lead">点検係は8つの軸を機械で見ます。残りは人が見ます。ここを混ぜないのが、この仕組みの線引きです。</p>
+<table>
+  <tr><th>機械が「直す」と言える所（8つ）</th><th>人が目で見る所（4つ）</th></tr>
+  <tr>
+    <td>使ってはいけない言葉／カルテに無い数字／呼び方のブレ／絵文字／次の一歩が無い／長すぎる／向かない人が抜けた／言えないことが無い</td>
+    <td>痛みの引用がカルテの言葉のままか／お客さんの声のように読める文が混じっていないか／効果を約束する言い方になっていないか／決めた言葉が言い換えられていないか</td>
+  </tr>
+</table>
+
+<h2><span class="num">06</span>うまくいかなかったこと</h2>
+<table>
+  <tr><th>起きたこと</th><th>原因</th><th>直し方</th></tr>
+  <tr><td>対照実験が汚れた。カルテを渡していないのに、部下が勝手にカルテを読んで答えた</td><td>工房の中で動かしたので、同じフォルダのファイルを見つけてしまった</td><td>実験だけ空の一時フォルダで動かす</td></tr>
+  <tr><td>点検係が「5,000円」を見逃した</td><td>3桁区切りのカンマで数字が切れて「000円」として読まれ、カルテの「12,000円」由来の値と一致した</td><td>照らす前にカンマを外す。検知が12件から13件に増えた</td></tr>
+  <tr><td>集客7本の締めの1行が、全部同じ文のコピーになった</td><td>定義に「同じ文を使い回すな」と書いていなかった</td><td>定義に1行足して動かし直した。並べて書かせたことが分かるのは、だいたいこの最後の1行</td></tr>
+  <tr><td>出力に前書きと後書き（「メモ:」）が付いて、そのままでは貼れなかった</td><td>出す形を指定しても、説明を添えたがる</td><td>定義に「前書きも後書きも書きません」と出す形の見本を入れた</td></tr>
+</table>
+
+<h2><span class="num">07</span>測っていないこと</h2>
+<div class="note">
+  <ul style="margin:0;padding-left:1.2em">
+    <li>この仕組みで作った文章を、実際に投稿していません。表示数・反応・問い合わせ・売上は測っていません。</li>
+    <li>著者が手で同じ量を書いた時間を測っていません。だから「何時間が何分に」とは書けません。</li>
+    <li>見本の商品は架空です。</li>
+    <li>モデルは sonnet だけです。他のモデルとの差は測っていません。</li>
+    <li>同じカルテで何回動かしても同じ品質かは、通し1回ぶんしか記録していません（集客係だけ3回）。</li>
+  </ul>
+</div>
+
+<footer>
+  <p>見本ページ ／ 佐藤大魔王（AI × 業務効率化）。出てきたものと測った数字は、記事の experience.json と同じものです。</p>
+  <p>貼った文はこのページの外に出ません。点検は、あなたのブラウザの中だけで動いています。</p>
+</footer>
+</div>
+
+<script src="check_core.js"></script>
+<script src="mihon.js"></script>
+<script>
+(function(){
+  var M = window.MIHON || {};
+  var TABS = [
+    { id:'shukyaku', label:'集客の投稿7本' },
+    { id:'kyoiku',   label:'返信5通' },
+    { id:'hanbai',   label:'告知と案内文' },
+    { id:'check',    label:'点検の結果' },
+    { id:'karte',    label:'カルテ（入れたもの）' },
+  ];
+  var tabs = document.getElementById('tabs');
+  var pre  = document.getElementById('mihon');
+  function show(id){
+    pre.textContent = M[id] || '(見本が読み込めませんでした)';
+    Array.prototype.forEach.call(tabs.children, function(b){
+      b.setAttribute('aria-selected', b.dataset.id === id ? 'true' : 'false');
+    });
+  }
+  TABS.forEach(function(t){
+    var b = document.createElement('button');
+    b.textContent = t.label; b.dataset.id = t.id;
+    b.onclick = function(){ show(t.id); };
+    tabs.appendChild(b);
+  });
+  show('shukyaku');
+
+  // ---- ここから点検 ----
+  var $ = function(id){ return document.getElementById(id); };
+  function wake(s){ return s.split(/[,、]/).map(function(x){return x.trim();}).filter(Boolean); }
+  function tsukuruKarte(){
+    return {
+      shoko: wake($('suji').value).map(function(f){ return { fact:f, source:'あなたが入れた' }; }),
+      kinshi: wake($('kinshi').value),
+      yougo: { '読者の呼び方': $('yobi').value.trim() || 'あなた', '使わない呼び方': wake($('tsukawanai').value), '言い換えない言葉': [] },
+      tsugi_no_ippo: { shukyaku:'次の一歩', kyoiku:'次の一歩', hanbai:'次の一歩' },
+      muitenai: [], dekinai: [],
+    };
+  }
+  $('run').onclick = function(){
+    var text = $('honbun').value;
+    var y = $('yakuwari').value;
+    var box = $('kekka');
+    if (!text.trim()){ box.innerHTML = '<div class="eye">点検する文を貼ってください。</div>'; return; }
+    var r = window.BukaCheck.shiraberu(text, tsukuruKarte(), y);
+    var h = '<h3>直す所: ' + r.shikaru.length + '件</h3>';
+    if (!r.shikaru.length) h += '<div class="pass">機械で見つかる直し所はありません。</div>';
+    r.shikaru.forEach(function(s){
+      h += '<div class="hit"><b>[' + s.kind + ']</b> ' + s.detail + '<span class="why">なぜ: ' + s.naze + '</span></div>';
+    });
+    h += '<h3>人が見る所: ' + r.hito_ga_miru.length + '件</h3>';
+    r.hito_ga_miru.forEach(function(s){
+      h += '<div class="eye">' + s.detail + '<span class="why">なぜ: ' + s.naze + '</span></div>';
+    });
+    if (r.ok.length){
+      h += '<h3>通った所</h3>';
+      r.ok.forEach(function(s){ h += '<div class="pass">' + s + '</div>'; });
+    }
+    box.innerHTML = h;
+  };
+  $('load-good').onclick = function(){
+    var y = $('yakuwari').value;
+    $('honbun').value = M[y] || '';
+    $('run').click();
+  };
+  $('load-bad').onclick = function(){
+    var y = $('yakuwari').value;
+    $('honbun').value = M['nashi_' + y] || '';
+    $('run').click();
+  };
+  $('load-good').click();
+})();
+</script>
+</body>
+</html>
